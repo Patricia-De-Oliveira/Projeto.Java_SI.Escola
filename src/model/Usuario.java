@@ -5,14 +5,24 @@ public class Usuario{
     private String login;
     private String senha;
     private Cargo cargo;
+    private Pessoa pessoa;
 
     public Usuario() {
     }
 
-    public Usuario(String login, String senha, Cargo cargo) {
+    public Usuario(String login, String senha, Cargo cargo, Pessoa pessoa) {
         this.login = login;
         this.senha = senha;
         this.cargo = cargo;
+        this.pessoa = pessoa;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
 
     public String getLogin() {
@@ -44,6 +54,7 @@ public class Usuario{
         return "Usuario{" +
                 "login='" + login + '\'' +
                 ", cargo=" + cargo +
+                ", nome=" + pessoa.getNome() +
                 '}';
     }
 }

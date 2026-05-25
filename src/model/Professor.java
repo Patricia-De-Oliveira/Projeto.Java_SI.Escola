@@ -31,7 +31,9 @@ public class Professor extends Pessoa implements Remuneravel {
     }
 
     public void setSalario(double salario) {
-        this.salario = salario;
+        if(salario >= 0){
+            this.salario = salario;
+        }
     }
 
     public Cargo getCargo() {

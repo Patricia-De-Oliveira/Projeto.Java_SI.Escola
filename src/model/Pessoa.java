@@ -42,12 +42,5 @@ public abstract class Pessoa {
 
     public abstract void minhaAtividade();
 
-    @Override
-    public String toString() {
-        return "Pessoa{" +
-                "nome='" + nome + '\'' +
-                ", idade=" + idade +
-                ", cpf=" + cpf +
-                '}';
-    }
+
 }

@@ -51,8 +51,8 @@ public class Frequencia{
     @Override
     public String toString() {
         return "Frequencia{" +
-                "aluno=" + aluno.getNome() +
-                ", disciplina=" + disciplina.getNome() +
+                "aluno=" + (aluno != null ? aluno.getNome() : "Sem aluno") +
+                ", disciplina='" + (disciplina != null ? disciplina.getNome() : "Sem disciplina") + '\'' +
                 ", faltas=" + faltas +
                 '}';
     }

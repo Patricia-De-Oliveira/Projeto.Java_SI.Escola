@@ -50,8 +50,8 @@ public class Nota{
     @Override
     public String toString() {
         return "Nota{" +
-                "aluno=" + aluno.getNome() +
-                ", disciplina='" + disciplina.getNome() + '\'' +
+                "aluno=" + (aluno != null ? aluno.getNome() : "Sem aluno") +
+                ", disciplina='" + (disciplina != null ? disciplina.getNome() : "Sem disciplina") + '\'' +
                 ", valor=" + valor +
                 '}';
     }

@@ -46,7 +46,7 @@ public class Aluno extends Pessoa{
     public String toString() {
         return "Aluno{" +
                 "matricula='" + matricula + '\'' +
-                ", turma=" + turma +
+                ", turma=" + (turma != null ? turma.getNome() : "Sem turma") +
                 ", nome='" + nome + '\'' +
                 ", idade=" + idade +
                 ", cpf='" + cpf + '\'' +
