@@ -41,7 +41,6 @@ public class Aluno extends Pessoa{
     public void minhaAtividade() {
         System.out.println("Estudar.");
     }
-
     @Override
     public String toString() {
         return "Aluno{" +
