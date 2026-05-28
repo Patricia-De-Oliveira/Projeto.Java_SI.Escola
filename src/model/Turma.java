@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Turma {
     private String nome;
-    private List<Aluno> alunos;
+    private List<Aluno> alunos; // possivelmente excluir
     private List<Disciplina> disciplinas;
 
     public Turma() {
