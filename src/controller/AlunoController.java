@@ -6,21 +6,21 @@ import service.AlunoService;
 import java.util.List;
 
 public class AlunoController {
-    private AlunoService alunoService = new AlunoService();
+    private final AlunoService alunoService = new AlunoService();
 
-    public Aluno cadastrar (Aluno aluno) {
-       return alunoService.cadastrar(aluno);
+    public void cadastrarAluno (Aluno aluno) {
+       alunoService.cadastrarAluno(aluno);
     }
 
-    public Aluno atualizar (Aluno aluno, int matricula) {
-        return alunoService.atualizar(aluno, matricula);
+    public List<Aluno> listarAluno () {
+        return alunoService.listarAlunos();
     }
 
-    public List<Aluno> listar () {
-        return alunoService.listar();
+    public String atualizarAluno (String matricula) {
+        return alunoService.atualizarAluno(matricula);
     }
 
-    public void deletar (int matricula) {
-        alunoService.deletar(matricula);
+    public String deletarAluno (String matricula) {
+        return alunoService.deletarAluno(matricula);
     }
 }

@@ -52,4 +52,5 @@ public class Aluno extends Pessoa{
                 ", cpf='" + cpf + '\'' +
                 '}';
     }
+
 }
