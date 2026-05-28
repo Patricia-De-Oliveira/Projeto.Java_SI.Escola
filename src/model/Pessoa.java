@@ -1,20 +1,17 @@
 package model;
 
-public class Pessoa {
-
-    protected String nome, email, endereco, telefone;
+public abstract class Pessoa {
+    protected String nome,cpf;
     protected int idade;
-    protected boolean ativo;
-    protected String senha;
 
-    public Pessoa(String nome, String email, String endereco, String telefone, int idade, boolean ativo, String senha) {
+    public Pessoa() {
+
+    }
+
+    public Pessoa(String nome, int idade, String cpf){
         this.nome = nome;
-        this.email = email;
-        this.endereco = endereco;
-        this.telefone = telefone;
         this.idade = idade;
-        this.ativo = ativo;
-        this.senha = senha;
+        this.cpf = cpf;
     }
 
     public String getNome() {
@@ -25,30 +22,6 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
     public int getIdade() {
         return idade;
     }
@@ -57,19 +30,17 @@ public class Pessoa {
         this.idade = idade;
     }
 
-    public boolean isAtivo() {
-        return ativo;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setAtivo(boolean ativo) {
-        this.ativo = ativo;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+    public abstract void quemSouEu();
 
-    public String getSenha() {
-        return senha;
-    }
+    public abstract void minhaAtividade();
+
+
 }

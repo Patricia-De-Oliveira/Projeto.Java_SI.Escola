@@ -1,15 +1,22 @@
 package model;
+
+import util.Validacoes;
+
 public class Frequencia{
     private Aluno aluno;
     private Disciplina disciplina;
-    private int totalAulasDadas;
-    private int totalPresencas;
+    private int faltas;
 
-    public Frequencia(Aluno aluno, Disciplina disciplina, int totalAulasDadas, int totalPresencas) {
+    private final Validacoes validacoes = new Validacoes();
+
+    public Frequencia(){
+
+    }
+
+    public Frequencia(Aluno aluno, Disciplina disciplina, int faltas) {
         this.aluno = aluno;
         this.disciplina = disciplina;
-        this.totalAulasDadas = totalAulasDadas;
-        this.totalPresencas = totalPresencas;
+        setFaltas(faltas);
     }
 
     public Aluno getAluno() {
@@ -28,19 +35,25 @@ public class Frequencia{
         this.disciplina = disciplina;
     }
 
-    public int getTotalAulasDadas() {
-        return totalAulasDadas;
+    public int getFaltas() {
+        return faltas;
     }
 
-    public void setTotalAulasDadas(int totalAulasDadas) {
-        this.totalAulasDadas = totalAulasDadas;
+    public void setFaltas(int faltas) {
+        if(validacoes.validarFaltas(faltas)){
+            this.faltas = faltas;
+        }else{
+            System.out.println("Faltas inválidas.");
+        }
+
     }
 
-    public int getTotalPresencas() {
-        return totalPresencas;
-    }
-
-    public void setTotalPresencas(int totalPresencas) {
-        this.totalPresencas = totalPresencas;
+    @Override
+    public String toString() {
+        return "Frequencia{" +
+                "aluno=" + (aluno != null ? aluno.getNome() : "Sem aluno") +
+                ", disciplina='" + (disciplina != null ? disciplina.getNome() : "Sem disciplina") + '\'' +
+                ", faltas=" + faltas +
+                '}';
     }
 }
