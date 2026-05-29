@@ -5,5 +5,6 @@ public enum Cargo {
     COORDENADOR,
     DIRETOR,
     ADMIN,
-    SECRETARIA
+    SECRETARIA,
+    ALUNO
 }
