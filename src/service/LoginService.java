@@ -1,31 +1,36 @@
 package service;
 
 import model.Usuario;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoginService{
+public class LoginService {
+
     private final List<Usuario> usuarios = new ArrayList<>();
 
-    public void cadastrarUsuario(Usuario usuario) {
+    // CREATE
+    public void cadastrarUsuario(Usuario usuario){
         usuarios.add(usuario);
     }
 
-    public Usuario autenticarUsuario(Usuario usuarioInformado) {
-        if (usuarioInformado == null || usuarioInformado.getLogin() == null || usuarioInformado.getSenha() == null) {
+    // LOGIN
+    public Usuario autenticarUsuario(String login, String senha){
+        if(login == null || senha == null){
             return null;
         }
-
-        for (Usuario u : usuarios) {
-            if (u.getLogin() != null && u.getSenha() != null) {
-                if (u.getLogin().equals(usuarioInformado.getLogin())&& u.getSenha().equals(usuarioInformado.getSenha())) {
-                    return u;
+        for(Usuario usuario : usuarios){
+            if(usuario.getLogin() != null && usuario.getSenha() != null){
+                if(usuario.getLogin().equals(login) && usuario.getSenha().equals(senha)){
+                    return usuario;
                 }
             }
         }
         return null;
     }
 
-    public void logout() {
+    // LOGOUT
+    public void logout(){
+
     }
 }

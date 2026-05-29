@@ -54,7 +54,7 @@ public class Usuario{
         return "Usuario{" +
                 "login='" + login + '\'' +
                 ", cargo=" + cargo +
-                ", nome=" + pessoa.getNome() +
+                ", nome=" + (pessoa != null ? pessoa.getNome() : "Sem pessoa") +
                 '}';
     }
 }
