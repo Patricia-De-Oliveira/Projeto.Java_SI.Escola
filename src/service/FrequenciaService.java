@@ -6,32 +6,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FrequenciaService {
+
     private final List<Frequencia> frequencias = new ArrayList<>();
 
-    public List<Frequencia> listarFrequencias() {
-        return frequencias;
-    }
-    public void regristrarFrequencia(Frequencia frequencia) {
+    // CREATE
+    public void registrarFrequencia(Frequencia frequencia){
         frequencias.add(frequencia);
     }
 
-    public Frequencia buscarPorAlunoEDisciplina(String matriculaAluno, String nomeDisciplina) {
-        for (Frequencia f: frequencias) {
-            if (f.getAluno() != null && f.getAluno().getMatricula().equals(matriculaAluno)&& f.getDisciplina() != null && f.getDisciplina() .getNome().equalsIgnoreCase(nomeDisciplina)) {
+    // READ
+    public List<Frequencia> listarFrequencias(){
+        return frequencias;
+    }
+
+    // BUSCA ESPECÍFICA
+    public Frequencia buscarPorAlunoEDisciplina(String matriculaAluno, String nomeDisciplina){
+        for(Frequencia f : frequencias){
+            if(f.getAluno() != null && f.getAluno().getMatricula().equalsIgnoreCase(matriculaAluno) && f.getDisciplina() != null && f.getDisciplina().getNome().equalsIgnoreCase(nomeDisciplina)){
                 return f;
             }
         }
         return null;
     }
-    public String lancarFaltas (String matriculaAluno, String nomeDisciplina, int quantidadeNovasFaltas) {
-        Frequencia freq = buscarPorAlunoEDisciplina(matriculaAluno, nomeDisciplina);
 
-        if (freq != null) {
-            int totalFaltasAtual = freq.getFaltas();
-            freq.setFaltas(totalFaltasAtual + quantidadeNovasFaltas);
-            return "Faltas atualizadas com sucesso!";
+    // UPDATE
+    public String lancarFaltas(String matriculaAluno,String nomeDisciplina,int quantidadeNovasFaltas){
+        if(quantidadeNovasFaltas <= 0){
+            return "Quantidade inválida!";
         }
-
-        return "Registo de frequência não encontrado para este aluno nesta disciplina.";
+        Frequencia frequencia = buscarPorAlunoEDisciplina(matriculaAluno,nomeDisciplina);
+        if(frequencia != null){
+            int totalAtual = frequencia.getFaltas();
+            frequencia.setFaltas(totalAtual + quantidadeNovasFaltas);
+            return "Faltas atualizadas!";
+        }
+        return "Frequência não encontrada!";
     }
 }

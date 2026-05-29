@@ -6,17 +6,21 @@ import service.FrequenciaService;
 import java.util.List;
 
 public class FrequenciaController {
-    private final FrequenciaService frequenciaService = new FrequenciaService();
 
-    public void registrarFrequencia(Frequencia frequencia) {
-        frequenciaService.regristrarFrequencia(frequencia);
+    private final FrequenciaService frequenciaService =new FrequenciaService();
+
+    // CREATE
+    public void registrarFrequencia(Frequencia frequencia){
+        frequenciaService.registrarFrequencia(frequencia);
     }
 
-    public List<Frequencia> ListarFrequencias() {
+    // READ
+    public List<Frequencia> listarFrequencias(){
         return frequenciaService.listarFrequencias();
     }
 
-    public String lancarFaltas (String matriculaAluno, String nomeDisciplina, int quantidadeNovasFaltas) {
-        return frequenciaService.lancarFaltas(matriculaAluno, nomeDisciplina, quantidadeNovasFaltas);
+    // UPDATE
+    public String lancarFaltas(String matriculaAluno, String nomeDisciplina, int quantidadeNovasFaltas){
+        return frequenciaService.lancarFaltas(matriculaAluno,nomeDisciplina,quantidadeNovasFaltas);
     }
 }
