@@ -6,39 +6,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AlunoService {
-    private final ArrayList<Aluno> alunos = new ArrayList<>();
 
-    public Aluno cadastrar (Aluno aluno) {
+    private final List<Aluno> alunos = new ArrayList<>();
+
+    // CREATE
+    public void cadastrarAluno(Aluno aluno){
         alunos.add(aluno);
-        return aluno;
     }
 
-    public List<Aluno> listar() {
+    // READ
+    public List<Aluno> listarAlunos(){
         return alunos;
     }
 
-    public Aluno atualizar(Aluno aluno, String matricula) {
-        for (Aluno a : alunos) {
-            if(a.getMatricula().equalsIgnoreCase(matricula)) {
-                a.setNome(aluno.getNome());
-                a.setIdade(aluno.getIdade());
-                break;
+    // UPDATE
+    public String atualizarAluno(String matricula, String novoNome){
+        for(Aluno aluno : alunos){
+            if(aluno.getMatricula().equalsIgnoreCase(matricula)){
+                aluno.setNome(novoNome);
+                return "Aluno atualizado!";
             }
         }
-
-        return aluno;
+        return "Aluno não encontrado!";
     }
 
-
-
-    public void deletar(String matricula) {
-        for (Aluno a : alunos) {
-            if (a.getMatricula().equalsIgnoreCase(matricula)) {
-                alunos.remove(a);
-                break;
+    // DELETE
+    public String deletarAluno(String matricula){
+        for(int i = 0; i < alunos.size(); i++){
+            if(alunos.get(i).getMatricula().equalsIgnoreCase(matricula)){
+                alunos.remove(i);
+                return "Aluno removido!";
             }
         }
+        return "Aluno não encontrado!";
     }
-
-
 }

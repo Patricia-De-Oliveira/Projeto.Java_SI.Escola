@@ -6,31 +6,26 @@ import service.AlunoService;
 import java.util.List;
 
 public class AlunoController {
+
     private final AlunoService alunoService = new AlunoService();
 
-    public void cadastrarAluno (Aluno aluno) {
-       alunoService.cadastrarAluno(aluno);
+    // CREATE
+    public void cadastrarAluno(Aluno aluno){
+        alunoService.cadastrarAluno(aluno);
     }
 
-<<<<<<< HEAD
-    public Aluno atualizar (Aluno aluno, String matricula) {
-        return alunoService.atualizar(aluno, matricula);
-=======
-    public List<Aluno> listarAluno () {
+    // READ
+    public List<Aluno> listarAlunos(){
         return alunoService.listarAlunos();
->>>>>>> feature/aluno
     }
 
-    public String atualizarAluno (String matricula) {
-        return alunoService.atualizarAluno(matricula);
+    // UPDATE
+    public String atualizarAluno(String matricula, String novoNome){
+        return alunoService.atualizarAluno(matricula,novoNome);
     }
 
-<<<<<<< HEAD
-    public void deletar (String matricula) {
-        alunoService.deletar(matricula);
-=======
-    public String deletarAluno (String matricula) {
+    // DELETE
+    public String deletarAluno(String matricula){
         return alunoService.deletarAluno(matricula);
->>>>>>> feature/aluno
     }
 }
