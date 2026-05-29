@@ -3,54 +3,29 @@ package controller;
 import model.Turma;
 import service.TurmaService;
 
+import java.util.List;
+
 public class TurmaController {
 
-    private final TurmaService service =
-            new TurmaService();
+    private final TurmaService turmaService = new TurmaService();
 
-    public void cadastrarTurma(
-            String codigo,
-            String nome,
-            int semestre){
+    // CREATE
+    public void cadastrarTurma(Turma turma){
+        turmaService.cadastrarTurma(turma);
     }
 
-    public void listarTurmas(){
-
-        for(Turma turma :
-                service.listarTurmas()){
-
-            System.out.println(
-                    turma
-            );
-
-        }
-
+    // READ
+    public List<Turma> listarTurmas(){
+        return turmaService.listarTurmas();
     }
 
-    public void atualizarTurma(
-            String codigo,
-            String nome,
-            int semestre){
-
-        System.out.println(
-                service.atualizarTurma(
-                        codigo,
-                        nome,
-                        semestre
-                )
-        );
-
+    // UPDATE
+    public String atualizarTurma(String nome, String novoNome){
+        return turmaService.atualizarTurma(nome, novoNome);
     }
 
-    public void deletarTurma(
-            String codigo){
-
-        System.out.println(
-                service.deletarTurma(
-                        codigo
-                )
-        );
-
+    // DELETE
+    public String deletarTurma(String nome){
+        return turmaService.deletarTurma(nome);
     }
-
 }

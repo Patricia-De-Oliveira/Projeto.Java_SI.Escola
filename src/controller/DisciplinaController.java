@@ -3,50 +3,29 @@ package controller;
 import model.Disciplina;
 import service.DisciplinaService;
 
+import java.util.List;
+
 public class DisciplinaController {
 
-    private final DisciplinaService service =
-            new DisciplinaService();
+    private final DisciplinaService disciplinaService = new DisciplinaService();
 
-    public void cadastrarDisciplina(
-            String codigo,
-            String nome,
-            int carga){
+    // CREATE
+    public void cadastrarDisciplina(Disciplina disciplina){
+        disciplinaService.cadastrarDisciplina(disciplina);
     }
 
-    public void listarDisciplinas(){
-
-        for(Disciplina d :
-                service.listarDisciplinas()){
-
-            System.out.println(d);
-
-        }
-
+    // READ
+    public List<Disciplina> listarDisciplinas(){
+        return disciplinaService.listarDisciplinas();
     }
 
-    public void atualizarDisciplina(
-            String codigo,
-            String nome,
-            int carga){
-
-        System.out.println(
-                service.atualizarDisciplina(
-                        codigo,
-                        nome,
-                        carga
-                )
-        );
+    // UPDATE
+    public String atualizarDisciplina(String nome, String novoNome, int novaCarga){
+        return disciplinaService.atualizarDisciplina(nome, novoNome, novaCarga);
     }
 
-    public void deletarDisciplina(
-            String codigo){
-
-        System.out.println(
-                service.deletarDisciplina(
-                        codigo
-                )
-        );
+    // DELETE
+    public String deletarDisciplina(String nome){
+        return disciplinaService.deletarDisciplina(nome);
     }
-
 }

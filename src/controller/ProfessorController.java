@@ -3,25 +3,29 @@ package controller;
 import model.Professor;
 import service.ProfessorService;
 
+import java.util.List;
+
 public class ProfessorController {
 
-    private final ProfessorService service =
-            new ProfessorService();
+    private final ProfessorService professorService = new ProfessorService();
 
-    public void cadastrarProfessor(
-            String matricula,
-            String nome,
-            String disciplina){
+    // CREATE
+    public void cadastrarProfessor(Professor professor){
+        professorService.cadastrarProfessor(professor);
     }
 
-    public void listarProfessores(){
-
-        for(Professor p :
-                service.listarProfessores()){
-
-            System.out.println(p);
-        }
-
+    // READ
+    public List<Professor> listarProfessores(){
+        return professorService.listarProfessores();
     }
 
+    // UPDATE
+    public String atualizarProfessor(String matricula, String novoNome){
+        return professorService.atualizarProfessor(matricula,novoNome);
+    }
+
+    // DELETE
+    public String deletarProfessor(String matricula){
+        return professorService.deletarProfessor(matricula);
+    }
 }
