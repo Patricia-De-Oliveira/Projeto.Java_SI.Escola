@@ -7,10 +7,15 @@ import java.util.List;
 
 public class AlunoService {
 
-    private final List<Aluno> alunos = new ArrayList<>();
+    private static final List<Aluno> alunos = new ArrayList<>();
 
     // CREATE
     public void cadastrarAluno(Aluno aluno){
+
+        if(buscarAlunoPorMatricula(aluno.getMatricula()) != null){
+            System.out.println("Aluno já existe.");
+            return;
+        }
         alunos.add(aluno);
     }
 
@@ -39,5 +44,20 @@ public class AlunoService {
             }
         }
         return "Aluno não encontrado!";
+    }
+    public Aluno buscarAlunoPorMatricula(String matricula) {
+
+        for (Aluno aluno : alunos) {
+
+            if (aluno.getMatricula().equalsIgnoreCase(matricula)) {
+                return aluno;
+            }
+        }
+
+        return null;
+    }
+    public boolean alunoExiste(String matricula) {
+
+        return buscarAlunoPorMatricula(matricula) != null;
     }
 }

@@ -28,4 +28,7 @@ public class DisciplinaController {
     public String deletarDisciplina(String nome){
         return disciplinaService.deletarDisciplina(nome);
     }
+    public Disciplina buscarDisciplinaPorNome(String nome) {
+        return disciplinaService.buscarDisciplinaPorNome(nome);
+    }
 }

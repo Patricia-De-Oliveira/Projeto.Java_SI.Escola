@@ -21,6 +21,11 @@ public class FrequenciaController {
 
     // UPDATE
     public String lancarFaltas(String matriculaAluno, String nomeDisciplina, int quantidadeNovasFaltas){
-        return frequenciaService.lancarFaltas(matriculaAluno,nomeDisciplina,quantidadeNovasFaltas);
+        return frequenciaService.lancarFaltas(matriculaAluno, nomeDisciplina, quantidadeNovasFaltas);
+    }
+
+    // DELETE
+    public String deletarFrequencia(String matriculaAluno, String nomeDisciplina){
+        return frequenciaService.deletarFrequencia(matriculaAluno, nomeDisciplina);
     }
 }

@@ -28,4 +28,7 @@ public class ProfessorController {
     public String deletarProfessor(String matricula){
         return professorService.deletarProfessor(matricula);
     }
+    public Professor buscarProfessorPorMatricula(String matricula) {
+        return professorService.buscarProfessorPorMatricula(matricula);
+    }
 }

@@ -7,13 +7,15 @@ import java.util.List;
 
 public class DisciplinaService {
 
-    private final List<Disciplina> disciplinas =
+    private static final List<Disciplina> disciplinas =
             new ArrayList<>();
 
     // CREATE
-    public void cadastrarDisciplina(
-            Disciplina disciplina) {
-
+    public void cadastrarDisciplina(Disciplina disciplina) {
+        if(buscarDisciplinaPorNome(disciplina.getNome()) != null){
+            System.out.println("Disciplina já existe.");
+            return;
+        }
         disciplinas.add(disciplina);
     }
 
@@ -44,5 +46,20 @@ public class DisciplinaService {
             }
         }
         return "Disciplina não encontrada!";
+    }
+    public Disciplina buscarDisciplinaPorNome(String nome) {
+
+        for (Disciplina disciplina : disciplinas) {
+
+            if (disciplina.getNome().equalsIgnoreCase(nome)) {
+                return disciplina;
+            }
+        }
+
+        return null;
+    }
+    public boolean disciplinaExiste(String nome) {
+
+        return buscarDisciplinaPorNome(nome) != null;
     }
 }

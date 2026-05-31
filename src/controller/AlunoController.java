@@ -28,4 +28,7 @@ public class AlunoController {
     public String deletarAluno(String matricula){
         return alunoService.deletarAluno(matricula);
     }
+    public Aluno buscarAlunoPorMatricula(String matricula) {
+        return alunoService.buscarAlunoPorMatricula(matricula);
+    }
 }

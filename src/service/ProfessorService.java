@@ -7,10 +7,14 @@ import java.util.List;
 
 public class ProfessorService {
 
-    private final List<Professor> professores = new ArrayList<>();
+    private static final List<Professor> professores = new ArrayList<>();
 
     // CREATE
     public void cadastrarProfessor(Professor professor){
+        if(buscarProfessorPorMatricula(professor.getMatricula()) != null){
+            System.out.println("Professor já existe.");
+            return;
+        }
         professores.add(professor);
     }
 
@@ -40,5 +44,20 @@ public class ProfessorService {
             }
         }
         return "Professor não encontrado!";
+    }
+    public Professor buscarProfessorPorMatricula(String matricula) {
+
+        for (Professor professor : professores) {
+
+            if (professor.getMatricula().equalsIgnoreCase(matricula)) {
+                return professor;
+            }
+        }
+
+        return null;
+    }
+    public boolean professorExiste(String matricula) {
+
+        return buscarProfessorPorMatricula(matricula) != null;
     }
 }

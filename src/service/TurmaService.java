@@ -7,10 +7,15 @@ import java.util.List;
 
 public class TurmaService {
 
-    private final List<Turma> turmas = new ArrayList<>();
+    private static final List<Turma> turmas = new ArrayList<>();
 
     // CREATE
     public void cadastrarTurma(Turma turma){
+
+        if(buscarTurmaPorNome(turma.getNome()) != null){
+            System.out.println("Turma já existe.");
+            return;
+        }
         turmas.add(turma);
     }
 
@@ -39,5 +44,20 @@ public class TurmaService {
             }
         }
         return "Turma não encontrada!";
+    }
+    public Turma buscarTurmaPorNome(String nome) {
+
+        for (Turma turma : turmas) {
+
+            if (turma.getNome().equalsIgnoreCase(nome)) {
+                return turma;
+            }
+        }
+
+        return null;
+    }
+    public boolean turmaExiste(String nome) {
+
+        return buscarTurmaPorNome(nome) != null;
     }
 }

@@ -14,11 +14,11 @@ public class NotaController {
         return notaService.listarNotas();
     }
     // Chamando metodo atualizar
-    public String atualizarNota(String matricula, double novoValor) {
-        return notaService.atualizarNota(matricula, novoValor);
+    public String atualizarNota(String matriculaAluno, String nomeDisciplina, double novoValor) {
+        return notaService.atualizarNota(matriculaAluno, nomeDisciplina, novoValor);
     }
     // Chamando metodo deletar
-    public String deletarNota(String matricula) {
-        return notaService.deletarNota(matricula);
+    public String deletarNota(String matriculaAluno, String nomeDisciplina) {
+        return notaService.deletarNota(matriculaAluno, nomeDisciplina);
     }
 }

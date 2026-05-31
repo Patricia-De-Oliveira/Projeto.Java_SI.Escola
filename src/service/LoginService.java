@@ -7,7 +7,7 @@ import java.util.List;
 
 public class LoginService {
 
-    private final List<Usuario> usuarios = new ArrayList<>();
+    private static final List<Usuario> usuarios = new ArrayList<>();
 
     // CREATE
     public void cadastrarUsuario(Usuario usuario){

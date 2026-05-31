@@ -28,4 +28,7 @@ public class TurmaController {
     public String deletarTurma(String nome){
         return turmaService.deletarTurma(nome);
     }
+    public Turma buscarTurmaPorNome(String nome) {
+        return turmaService.buscarTurmaPorNome(nome);
+    } 
 }
